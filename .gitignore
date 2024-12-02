@@ -1,4 +1,5 @@
 task-tracker-data
+data-cli
 # Logs
 logs
 *.log

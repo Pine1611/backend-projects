@@ -1,0 +1,29 @@
+{
+    "name": "personal-finance-tracker",
+    "version": "1.0.0",
+    "description": "This is simple tracker application to manage your finances.",
+    "main": "app.mjs",
+    "type": "module",
+    "bin": {
+        "fin-track": "app.mjs"
+    },
+    "scripts": {
+        "start": "npm exec",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "personal-finances",
+        "expenses-tracker",
+        "expenses",
+        "cli",
+        "command-line-interface"
+    ],
+    "author": "Iam Pine",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^22.7.4",
+        "commander": "^12.1.0",
+        "dotenv": "^16.4.5",
+        "cli-table": "^0.3.11"
+    }
+}
