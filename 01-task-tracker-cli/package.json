@@ -1,0 +1,25 @@
+{
+    "name": "task-tracker-cli",
+    "version": "1.0.0",
+    "description": "A simple Command Line Interface (CLI) app that help you to track and manage your To-Do-List.",
+    "main": "app.js",
+    "type": "module",
+    "bin": {
+        "task-cli": "./app.js"
+    },
+    "scripts": {
+        "start": "npm exec",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "task",
+        "tracker",
+        "cli",
+        "command",
+        "line",
+        "interface"
+    ],
+    "author": "Iam Pine",
+    "license": "MIT",
+    "devDependencies": {}
+}
