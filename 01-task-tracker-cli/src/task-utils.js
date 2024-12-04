@@ -19,16 +19,29 @@ export function init() {
     try {
         if (!fs.existsSync(filePath)) {
             // make directory data
+            console.log("Creating folder data...");
             fs.mkdirSync(DATA_PATH);
             // create file
+            console.log("Creating data file...");
             let fileData = {
                 tasks: [],
                 totalTask: 0,
             };
             fs.writeFileSync(filePath, JSON.stringify(fileData, null, 4), "utf8");
+
+            console.log("Data file created at: " + filePath);
         }
     } catch (error) {
-        console.log(error);
+        console.log("Folder exist! Creating data file...");
+
+        // create files if folder exist
+        let fileData = {
+            tasks: [],
+            totalTask: 0,
+        };
+        fs.writeFileSync(filePath, JSON.stringify(fileData, null, 4), "utf8");
+
+        console.log("Data file created at: " + filePath);
     }
 }
 

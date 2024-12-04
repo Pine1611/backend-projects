@@ -7,9 +7,7 @@ switch (args[0]) {
         if (args.length === 1) {
             taskManager.viewTasks(null);
         } else if (!["todo", "in-progress", "done"].includes(args[1])) {
-            console.log(
-                "Invalid status provided. Valid status: todo, in-progress, done"
-            );
+            console.log("Invalid status provided. Valid status: todo, in-progress, done");
             process.exit(1);
         } else {
             taskManager.viewTasks(args[1]);
