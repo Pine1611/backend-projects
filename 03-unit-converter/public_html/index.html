@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+
+    <title>You've ripped a hole in the fabric of the internet. Love, from Pine!</title>
+
+    <meta name="description" content="This is UI-Design template for temperature converter API." />
+    <meta name="keywords"
+        content="template, template-html-css, sass, responsive, responsive-design, temperature-converter, api" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="author" content="Pine!" />
+    <link rel="icon" type="favicon" href="assets/images/fav-ico.gif" />
+
+    <link rel="stylesheet" href="assets/css/main.module.min.css" />
+</head>
+
+<body class="page flex flex--center flex--y page--full-y">
+
+    <div class="page__wrap shadow__wrap">
+        <div class="page__head flex flex--y-end">
+            <div class="datetime">Nov 05, 2024</div>
+
+            <div class="select__box">
+                <div class="select__current" tabindex="1">
+                    <div id="select__measurement-input-js">
+                        <!-- dynamic load input list measurement here -->
+                    </div>
+
+                    <svg class="select__icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M26 11L16 21L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <ul class="select__list" id="select__measurement-list-js">
+                    <!-- dynamic load list select measurement here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="page__content">
+            <div class="page__content--from">
+                <div class="form__wrap">
+                    <input class="form__input form__input--from" type="text" name="valueConvert" id="valueConvert"
+                        value="0" required />
+                    <label class="form__title" for="valueConvert">From</label>
+                    <label class="form__error-msg" id="invalidValueConvert"></label>
+                </div>
+            </div>
+            <div class="page__content--to">
+                <div class="form__wrap">
+                    <div class="form__input form__input--to valueConverted" id="valueConverted">NaN</div>
+                    <label class="form__title form__title--to">To</label>
+                </div>
+            </div>
+
+            <div class="swap flex flex--nowrap flex--y-cen gap-4">
+                <div class="select__box select__box--small">
+                    <div class="select__current select__current--small select__from" tabindex="1">
+
+                        <div class="select__current-js">
+                            <div class="select__value">
+                                <input class="select__input" type="radio" id="from-km" value="km" name="fromUnit" />
+                                <label class="select__input-text">km</label>
+                            </div>
+                        </div>
+
+                        <svg class="select__icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26 11L16 21L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+
+                    <ul class="select__list select__list-js">
+                        <!-- dynamic load here -->
+                    </ul>
+                </div>
+                <button class="btn btn--icon flex gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="btn__icon icon icon--sm">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                    </svg>
+                </button>
+                <div class="select__box select__box--small">
+                    <div class="select__current select__current--small select__to" tabindex="1">
+
+                        <div class="select__current-js">
+                            <div class="select__value">
+                                <input class="select__input" type="radio" id="to-km" value="km" name="toUnit" />
+                                <label class="select__input-text">km</label>
+                            </div>
+                        </div>
+
+                        <svg class="select__icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M26 11L16 21L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+
+                    <ul class="select__list select__list-js">
+                        <!-- dynamic load here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;" class="page__content">
+        Hi there! I am Pine, this is simple WebApp Unit Measurement System Converter I have done. It base on
+        project from roadmap.sh. Hope you enjoy with this App :v
+    </div>
+
+    <script src="./assets/js/scripts.js"></script>
+
+</body>
+
+</html>
