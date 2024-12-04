@@ -1,0 +1,27 @@
+{
+    "name": "unit-converter",
+    "version": "1.0.0",
+    "description": "This is simple webapp user for unit conversion.",
+    "main": "server.mjs",
+    "type": "module",
+    "scripts": {
+        "start": "node ./src/server.mjs",
+        "dev": "nodemon ./src/server.mjs",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "unit-conversion",
+        "webapp",
+        "server",
+        "express-js",
+        "api"
+    ],
+    "author": "I am Pine",
+    "license": "MIT",
+    "devDependencies": {
+        "express": "^4.21.1",
+        "cors": "^2.8.5",
+        "helmet": "^8.0.0",
+        "nodemon": "^3.1.7"
+    }
+}
