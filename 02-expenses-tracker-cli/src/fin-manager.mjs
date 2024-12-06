@@ -50,7 +50,7 @@ async function findExpByID(_id) {
  * @param {string} _filter search term, use for filter expenses
  * @returns data table
  */
-export async function viewList(_type = null, _filter = null) {
+export async function viewList(_type = null, _filter = null, program = null) {
     // read data file
     const data = await utils.readDataFile().then((data) => {
         if (_type !== null && _type === "exp") {
@@ -61,7 +61,12 @@ export async function viewList(_type = null, _filter = null) {
     });
 
     // check if data is null
-    if (data === undefined) {
+    if (data.length == 0 && _type == "exp") {
+        console.info("You don't have any expenses now! Please try add first expenses!");
+        return program.help();
+    }
+
+    if (data.length == 0) {
         console.log("Files is corrupted!");
         console.log("Do you want to backup files?");
         return console.log("Here is feature will dev later! @Pine! !@@");

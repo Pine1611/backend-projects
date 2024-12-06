@@ -37,7 +37,7 @@ export function init() {
                         console.log("Initializing new data file...");
                         const data = {
                             expenses: [],
-                            categories: [],
+                            categories: ["Everyday"],
                         };
                         await fs.writeFile(config.FILE_PATH, JSON.stringify(data, null, 4), {
                             flag: "w+",
