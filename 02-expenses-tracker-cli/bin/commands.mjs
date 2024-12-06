@@ -136,7 +136,7 @@ export async function createCommands(_args) {
                 filter = args.slice(2).join(" ");
             }
             // call view list
-            manager.viewList(type, filter);
+            manager.viewList(type, filter, program);
         });
 
     program.parse(_args);
