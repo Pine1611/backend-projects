@@ -35,7 +35,7 @@ This is roadmap.sh Backend Projects Ideas and Solutions I have done!
 [Weather API]: https://github.com/Pine1611/backend-projects
 [ref-weather-api-wrapper-service]: https://roadmap.sh/projects/weather-api-wrapper-service
 [Blogging Platform API]: https://github.com/Pine1611/backend-projects
-[ref-weather-api-wrapper-service]: https://roadmap.sh/projects/blogging-platform-api
+[ref-blogging-platform-api]: https://roadmap.sh/projects/blogging-platform-api
 [Todo List API]: https://github.com/Pine1611/backend-projects
 [ref-todo-list-api]: https://roadmap.sh/projects/todo-list-api
 [Expense Tracker API]: https://github.com/Pine1611/backend-projects
