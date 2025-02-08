@@ -1,4 +1,5 @@
 data-cli
+.vscode
 # Logs
 logs
 *.log
