@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+
+    <title>Number Guessing Game - You've ripped a hole in the fabric of the internet. Love, from Pine!</title>
+
+    <meta name="description"
+        content="A simple number guessing game where the computer randomly selects a number and the user has to guess it. The fourth project based on roadmap.sh" />
+    <meta name="keywords" content="design, html, sass/css, responsive, template, javascript, weather app, api" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="author" content="Pine!" />
+    <meta property="og:site_name" content="Number Guessing Game" />
+    <meta property="og:title"
+        content="Number Guessing Game - You've ripped a hole in the fabric of the internet. Love, from Pine!" />
+    <meta property="og:description"
+        content="A simple number guessing game where the computer randomly selects a number and the user has to guess it. The fourth project based on roadmap.sh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../global_assets/images/logo.svg" />
+    <meta property="og:url" content="https://github.com/Pine1611" />
+
+    <link rel="icon" type="favicon" href="../global_assets/images/fav-ico.gif" />
+
+</head>
+
+<body>
+
+    <div class="container" style="width: 50%; margin: 10% auto;">
+        <header>
+            <h1>IAP</h1>
+            <ul>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Roadmap</a></li>
+            </ul>
+        </header>
+
+        <div class="guessing-game">
+
+            <div class="intro">
+                <h3>Welcome to the Number Guessing Game!</h3>
+                <h5>I am thinking of a number bettween 1 to 100.</h5>
+                <p>So the challenge for you is guess the number I am thinking.</p>
+                <div class="controls-game">
+                    <button id="startGame">Let's start</button>
+                    <button id="resetGame" disabled>Reset game</button>
+                </div>
+            </div>
+
+            <div id="levelSection">
+                <!-- render select level here -->
+            </div>
+
+            <div id="fightSection">
+                <!-- render fighting section here -->
+            </div>
+
+            <div id="messageAlert">
+                <!-- message alert -->
+            </div>
+
+        </div>
+    </div>
+
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>
