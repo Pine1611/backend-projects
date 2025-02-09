@@ -29,18 +29,10 @@ class GuessingGame {
         this.guessNumber = -1;
         this.gameStatus = false;
 
-        this.gameAttribute = {
-            status: false,
-            changes: 0,
-            correctNumber: -1,
-            guessNumber: -1,
-        };
-
         this.levelSection = document.getElementById(GuessingGame.CONTROLS.levelSection);
         this.fightSection = document.getElementById(GuessingGame.CONTROLS.fightSection);
         this.msgAlert = document.getElementById(GuessingGame.CONTROLS.messageAlert);
         this.btnReset = document.getElementById(GuessingGame.CONTROLS.resetGame);
-
         this.btnStart = document.getElementById(GuessingGame.CONTROLS.startGame);
 
         this.btnStart.addEventListener("click", (event) => {
@@ -63,6 +55,7 @@ class GuessingGame {
         });
     }
 
+    // render section for select option level difficult
     createDifficultOptionsSection() {
         const totalOptions = GuessingGame.DIFFICULT_LEVELS.length;
         const options = GuessingGame.DIFFICULT_LEVELS;
@@ -86,10 +79,10 @@ class GuessingGame {
         }
 
         selectOption.addEventListener("change", (event) => {
-            const level = GuessingGame.DIFFICULT_LEVELS[event.target.value];
-            this.levelDifficult = level;
+            // copy object to global variable to avoid affecting origin data
+            this.levelDifficult = { ...GuessingGame.DIFFICULT_LEVELS[event.target.value] };
             this.btnReset.removeAttribute("disabled");
-            this.messageSelectedLevel(level);
+            this.messageSelectedLevel(this.levelDifficult);
             this.initialGame();
         });
 
@@ -97,11 +90,11 @@ class GuessingGame {
         this.levelSection.appendChild(titleOption);
         this.levelSection.appendChild(selectOption);
     }
+    // render section for fighting game
     createFightSection() {
         let inputEle = document.createElement("input");
         let btnEle = document.createElement("button");
         let btnText = document.createTextNode("Fight");
-        // const wrapSection = document.getElementById("fightSection");
 
         inputEle.name = "guessValue";
         inputEle.type = "text";
@@ -109,17 +102,16 @@ class GuessingGame {
 
         btnEle.appendChild(btnText);
         btnEle.addEventListener("click", () => {
-            // this.levelDifficult.changes--;
             if (this.gameStatus) {
-                this.startRound();
+                this.playRound();
             }
-            // console.log(this.levelDifficult);
         });
 
         this.fightSection.appendChild(inputEle);
         this.fightSection.appendChild(btnEle);
     }
 
+    // intial the game when click start
     initialGame() {
         // set the game are playing
         this.gameStatus = true;
@@ -130,6 +122,7 @@ class GuessingGame {
         this.createFightSection();
     }
 
+    // reset game
     resetGame() {
         this.levelDifficult = {};
         this.correctNumber = -1;
@@ -142,33 +135,36 @@ class GuessingGame {
         this.fightSection.innerHTML = "";
     }
 
+    // show message for level difficult selected
     messageSelectedLevel(level) {
         this.levelSection.innerHTML = `Ok, you have selected ${level.name}. You have ${level.changes} changes for fighting with me!`;
-        // this.initialGame();
     }
 
-    startRound() {
-        // execute round
-
-        if (this.levelDifficult.changes === 0) {
-            this.msgAlert.innerHTML = "You lost!!!";
-            this.gameStatus = false;
-        } else {
-            this.msgAlert.innerHTML = "Fightinggg!!";
-
+    playRound() {
+        // execute the round of game
+        if (this.levelDifficult.changes > 0) {
             this.guessNumber = document.getElementById("guessValue").value;
-            // this.levelDifficult.changes--;
 
-            if (parseInt(this.guessNumber) > this.correctNumber) {
-                this.msgAlert.innerHTML = `Incorrect! The number less than ${this.guessNumber}`;
-                this.levelDifficult.changes--;
-            } else if (parseInt(this.guessNumber) < this.correctNumber) {
-                this.msgAlert.innerHTML = `Incorrect! The number greater than ${this.guessNumber}`;
-                this.levelDifficult.changes--;
-            } else if (parseInt(this.guessNumber) === this.correctNumber && this.levelDifficult.changes > 0) {
-                this.msgAlert.innerHTML = `Congrat! You win`;
+            let lessOrGreate = parseInt(this.guessNumber) > this.correctNumber ? "less" : "greate";
+            this.levelDifficult.changes--;
+
+            if (parseInt(this.guessNumber) !== this.correctNumber) {
+                this.msgAlert.innerHTML = `Incorrect! The number ${lessOrGreate} than ${this.guessNumber}`;
+            } else {
+                this.msgAlert.innerHTML = "Congrat! You win";
+
+                // IDEAS: think will save the score for user here...
+
                 this.gameStatus = false;
             }
+
+            if (this.levelDifficult.changes === 0 && parseInt(this.guessNumber) !== this.correctNumber) {
+                this.msgAlert.innerHTML = "You lost the game!!!";
+                this.gameStatus = false;
+            }
+        } else {
+            this.msgAlert.innerHTML = "You are out of changes!!!";
+            this.gameStatus = false;
         }
 
         this.messageSelectedLevel(this.levelDifficult);
