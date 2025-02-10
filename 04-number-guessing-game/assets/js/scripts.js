@@ -23,6 +23,19 @@ class GuessingGame {
         },
     ];
 
+    static MAP = {
+        cols: 8,
+        rows: 8,
+        tsize: 12,
+        tiles: [
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        ],
+        getTiles(col, row) {
+            return this.tiles[row * GuessingGame.MAP.cols + col];
+        },
+    };
+
     constructor() {
         this.levelDifficult = {};
         this.correctNumber = -1;
@@ -53,6 +66,8 @@ class GuessingGame {
 
             this.resetGame();
         });
+
+        this.renderMap();
     }
 
     // render section for select option level difficult
@@ -168,6 +183,35 @@ class GuessingGame {
         }
 
         this.messageSelectedLevel(this.levelDifficult);
+    }
+
+    // extend ideas for save score
+    renderMap() {
+        const mapContainer = document.getElementById("mapTile");
+        let canvasMap = document.createElement("canvas");
+
+        canvasMap.width = 256;
+        canvasMap.height = 256;
+        let context = canvasMap.getContext("2d");
+        // context.clearRect(0, 0, 256, 256);
+
+        for (let c = 0; c < GuessingGame.MAP.cols; c++) {
+            for (let r = 0; r < GuessingGame.MAP.rows; r++) {
+                const tile = GuessingGame.MAP.getTiles(c, r);
+                var x = c * GuessingGame.MAP.tsize;
+                var y = r * GuessingGame.MAP.tsize;
+                if (tile == 0) {
+                    context.fillStyle = "#d3d3d3";
+                    context.beginPath();
+                    context.arc(x + 6, y + 6, 6, 0, 2 * Math.PI);
+                    context.fill();
+                }
+
+                console.log(tile + 1);
+            }
+        }
+
+        mapContainer.appendChild(canvasMap);
     }
 }
 
